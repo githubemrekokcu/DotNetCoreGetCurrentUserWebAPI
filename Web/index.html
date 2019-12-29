@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div style="width: 100%;text-align: center;">
+        <h2>Test Get User HTML Page</h2>
+    </div>
+    <div style="padding: 15px; width: 100%;">
+        <label id="username" for="">User Name : {User}</label>
+    </div>
+    <script>
+        function setUser(user){
+            $("#username").text($("#username").text().replace("{User}", user));
+        }
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: "http://localhost:8090/api/currentuser",
+            type: "GET",
+            dataType:"jsonp",
+            async: false,
+            cache:false,
+            crossDomain:true,
+        });
+    </script>
+</body>
+</html>
